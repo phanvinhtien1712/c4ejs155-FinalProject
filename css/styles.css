@@ -1,0 +1,438 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS(Biến css sử dụng bao quát cả file css) ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(219, 69%, 56%);
+  --first-color-alt: hsl(219, 69%, 52%);
+  --title-color: hsl(219, 8%, 95%);
+  --text-color: hsl(219, 8%, 75%);
+  --text-color-light: hsl(219, 4%, 55%);
+  --white-color: #fff;
+  --body-color: hsl(219, 4%, 4%);
+  --container-color: hsl(219, 4%, 7%);
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Exo", sans-serif;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*MainCSS*/
+.container {
+  max-width: 1024px;
+  margin-right: 1.5rem;
+  padding-left: 1.25rem;
+}
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.section {
+  padding: 4.5rem 0 2rem;
+}
+.section_title {
+  font-size: var(--h2-font-size);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+main {
+  overflow: hidden;
+}
+.shape {
+  background-color: hsla(219, 33%, 32%, 0.5);
+  filter: blur(112px); /*Tạo hiệu ứng blur làm mờ cho shape*/
+  border-radius: 50%;
+}
+.shape_big {
+  width: 400px;
+  height: 400px;
+}
+.shape_small {
+  width: 300px;
+  height: 300px;
+}
+
+.shape_smaller {
+  width: 180px;
+  height: 180px;
+  filter: blur(64px);
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+}
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav_logo,
+.nav_toggle {
+  color: var(--title-color);
+  display: inline-flex;
+}
+.nav_logo {
+  align-items: center;
+  column-gap: 0.25rem;
+  font-weight: var(--font-medium);
+  transition: 0.3s;
+}
+.nav_logo i {
+  font-size: 1.25rem;
+}
+.nav_logo:hover {
+  color: var(--first-color);
+}
+.nav_toggle {
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+@media screen and (max-width: 767px) {
+  .nav_menu {
+    position: fixed;
+    background-color: hsla(0, 0%, 100%, 0.1);
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(96px);
+    transition: 0.3s;
+  }
+}
+.nav_list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  row-gap: 3rem;
+  padding-top: 9rem;
+  .nav_item .ri-login-box-line {
+    font-size: 1.5rem;
+  }
+}
+.nav_link {
+  text-transform: uppercase;
+  color: var(--title-color);
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-medium);
+  transition: 0.3s;
+}
+.nav_link:hover {
+  color: var(--first-color);
+}
+.nav_close {
+  font-size: 2rem;
+  color: var(--white-color);
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+.sign-in {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  font-size: var(--small-font-size);
+  color: var(--title-color);
+  transition: 0.3s;
+}
+.sign-in a {
+  font-size: 1rem;
+}
+.sign-in i {
+  font-size: 1.25rem;
+}
+.sign-in:hover {
+  color: var(--first-color);
+}
+/*ShowMenu*/
+.show-menu {
+  right: 0;
+}
+
+/* Thay đổi background header khi scroll */
+.scroll-header {
+  background-color: var(--body-color);
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: 0 2px 4px hsla(0, 0%, 1%, 1);
+}
+/*=============== Active link ===============*/
+.active-link {
+  color: var(--first-color);
+}
+/* Định nghĩa animation cho các thẻ h2h3 fadeInUp */
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+/* Lớp áp dụng animation shake */
+.shake {
+  animation: shake 0.3s;
+}
+
+audio {
+  display: none;
+}
+/*=============== CSS cho button giỏ hàng ===============*/
+.button {
+  display: inline-block;
+  background-color: var(--first-color);
+  color: var(--white-color);
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  font-size: var(--normal-font-size);
+  transition: 0.3s;
+}
+
+/* Swiper class slider sản phẩm nổi bật*/
+.swiper-pagination-bullet {
+  background: var(--text-color);
+}
+.swiper-pagination-bullet-active {
+  background: var(--first-color);
+}
+/*=============== Thông số kỹ thuật ===============*/
+.features {
+  overflow: hidden;
+  position: relative;
+}
+.features_container {
+  padding-top: 2rem;
+  grid-template-columns: 285px;
+  justify-content: center;
+}
+.features_group {
+  display: grid;
+  position: relative;
+  z-index: 10;
+}
+.features_img {
+  width: 150px;
+  justify-self: center;
+}
+.features_card {
+  width: 112px;
+  background-color: hsla(0, 0%, 100%, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: 1.25rem;
+  padding: 0.75rem 2rem;
+  text-align: center;
+  color: var(--title-color);
+  position: absolute;
+}
+.features_card-1 {
+  top: 4rem;
+  left: 1.5rem;
+}
+.features_card-2 {
+  top: 8rem;
+  right: 1rem;
+}
+.features_card-3 {
+  bottom: 2rem;
+  left: 1.5rem;
+}
+.features_card-title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 0.25rem;
+}
+.features_description {
+  font-size: var(--small-font-size);
+}
+.features_map {
+  max-width: initial;
+  width: 450px;
+  position: absolute;
+  top: 8rem;
+  left: -3rem;
+  margin: auto;
+  transform: rotate(-22deg);
+}
+/*=============== Logos ===============*/
+.logos_img {
+  width: 40px;
+  opacity: 0.4;
+  transition: 0.3s;
+}
+.logos_container {
+  grid-template-columns: repeat(3, max-content);
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding-bottom: 2rem;
+}
+.logos_img:hover {
+  opacity: 1;
+}
+/*=============== Scroll Bar ===============*/
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: hsl(219, 4%, 16%);
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: hsl(219, 4%, 24%);
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(219, 4%, 32%);
+}
+/*=============== Scroll up ===============*/
+.scrollup {
+  position: fixed;
+  right: 1rem;
+  bottom: 3rem;
+  background-color: hsla(0, 0%, 100%, 0.1);
+  backdrop-filter: blur(16px);
+  display: inline-flex;
+  padding: 0.45rem;
+  border-radius: 0.5rem;
+  font-size: 1.15rem;
+  color: var(--white-color);
+  z-index: var(--z-tooltip);
+  transition: 0.4s;
+}
+.scrollup:hover {
+  transform: translateY(-0.25rem);
+  background-color: hsla(0, 0%, 100%, 0.2);
+}
+/*=============== show scroll up ===============*/
+.show_scroll {
+  bottom: 3rem;
+}
+/*=============== Light Theme ===============*/
+.light-theme {
+  --first-color: hsl(219, 69%, 56%);
+  --first-color-alt: hsl(219, 69%, 52%);
+  --title-color: hsl(219, 9%, 10%);
+  --text-color: hsl(219, 9%, 30%);
+  --text-color-light: hsl(219, 9%, 50%);
+  --white-color: #fff;
+  --body-color: hsl(0, 0%, 98%);
+  --container-color: hsl(0, 0%, 100%);
+}
+/*=============== THEME BUTTON ===============*/
+.theme-button {
+  font-size: 1.25rem;
+  color: var(--title-color);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-button:hover {
+  color: var(--first-color);
+}
+
+.theme-icon {
+  display: inline-flex;
+}
+/* Ví dụ tùy chỉnh cho giao diện sáng */
+.light-theme .header {
+  background-color: var(--container-color);
+  box-shadow: 0 2px 4px hsla(0, 0%, 80%, 0.1);
+}
+
+.light-theme .nav_link {
+  color: var(--text-color);
+}
+
+.light-theme .nav_link:hover {
+  color: var(--first-color);
+}

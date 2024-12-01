@@ -1,0 +1,63 @@
+/*=============== Giới thiệu ===============*/
+.about_container {
+  row-gap: 6rem;
+}
+.about_group {
+  position: relative;
+}
+.about_img {
+  width: 310px;
+  border-radius: 0.5rem;
+}
+.about_card {
+  width: 180px;
+  position: absolute;
+  right: 0;
+  bottom: -2.5rem;
+  background-color: hsla(0, 0%, 100%, 0.1);
+  backdrop-filter: blur(16px);
+  padding: 1rem 0.75rem;
+  text-align: center;
+  border-radius: 1.25rem;
+}
+.about_card-title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 0.5rem;
+}
+.about_card-description {
+  font-size: var(--small-font-size);
+}
+.about_title {
+  text-align: initial;
+  margin-bottom: 2rem;
+}
+.about_description {
+  margin-bottom: 2rem;
+}
+/*=============== Light Theme Adjustments for About Section ===============*/
+.light-theme {
+  /* ... */
+  --offer-background-color: #d4d4d4; /* Màu nền riêng cho phần offer */
+  --offer-text-color: #333; /* Màu văn bản riêng cho phần offer */
+}
+.light-theme .about {
+  background-color: var(--offer-background-color);
+  color: var(--text-color);
+}
+
+.light-theme .about_title {
+  color: var(--title-color);
+}
+
+.light-theme .about_description {
+  color: var(--text-color-light);
+}
+
+.light-theme .about_card {
+  background-color: var(--offer-background-color);
+  color: var(--text-color);
+}
+
+.light-theme .about_card-title {
+  color: var(--title-color);
+}

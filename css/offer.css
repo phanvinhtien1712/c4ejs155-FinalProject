@@ -1,0 +1,60 @@
+/*=============== Offer ===============*/
+.offer {
+  position: relative;
+}
+.offer_container {
+  grid-template-rows: max-content 224px;
+}
+.offer_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.offer_data,
+.offer_img {
+  position: relative;
+}
+.offer_data {
+  text-align: center;
+}
+.offer_title {
+  margin-bottom: 2rem;
+}
+.offer_description {
+  margin-bottom: 3rem;
+}
+.offer_img {
+  position: absolute;
+  max-width: initial;
+  width: 400px;
+  bottom: 2rem;
+  right: 6.5rem;
+}
+/*=============== Light theme===============*/
+.light-theme {
+  --offer-background-color: #f0f0f0;
+  --offer-text-color: #333;
+}
+.light-theme .offer .button {
+  background-color: var(--first-color);
+  color: var(--white-color);
+}
+
+.light-theme .offer .button:hover {
+  background-color: var(--first-color-alt);
+}
+.light-theme .offer_bg {
+  display: none;
+  background-color: var(--container-color);
+  /* Nếu hình ảnh nền không phù hợp với giao diện sáng, bạn có thể thay đổi hoặc loại bỏ */
+}
+
+/* Sử dụng các biến này trong CSS */
+.light-theme .offer {
+  background-color: var(--offer-background-color);
+  color: var(--offer-text-color);
+}
